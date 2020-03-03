@@ -96,9 +96,5 @@ public class TennisTest {
         TennisGame3 game = new TennisGame3("player1", "player2");
         checkAllScores(game);
     }
-    @Test
-    public void chh(){
-        System.out.println("hhhhh");
-    }
 
 }

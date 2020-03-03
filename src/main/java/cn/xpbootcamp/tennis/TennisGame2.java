@@ -1,5 +1,7 @@
 package cn.xpbootcamp.tennis;
 
+import static cn.xpbootcamp.tennis.ScoreTranslator.*;
+
 public class TennisGame2 implements TennisGame {
 	private int P1point = 0;
 	private int P2point = 0;
@@ -15,61 +17,16 @@ public class TennisGame2 implements TennisGame {
 	}
 
 	public String getScore() {
-		String score = "";
 		if (P1point == P2point) {
-            return getDrawScore();
-        }
+			return getDrawScore(P1point);
+		}
 
 		if (P1point < 4 && P2point < 4) {
-			return getOtherScore(P1point) + "-" + getOtherScore(P2point);
+			return translateOddScore(P1point) + "-" + translateOddScore(P2point);
 		}
 
-		score = getAdvantageAndWin();
-		return score;
+		return getAdvantageAndWin(P1point - P2point);
 	}
-
-    private String getDrawScore() {
-        String score;
-        score = translateScore(P1point);
-        if (P1point < 3) {
-            score += "-All";
-        }
-        return score;
-    }
-
-    private String getOtherScore(int score) {
-        String des = translateScore(score);
-        if (score == 3) {
-            des = "Forty";
-        }
-        return des;
-    }
-
-    private String getAdvantageAndWin() {
-        String score;
-        int minusResult = P1point - P2point;
-        if (minusResult == 1) score = "Advantage player1";
-        else if (minusResult == -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
-        return score;
-	}
-
-	private String translateScore(int sscore) {
-		String score = "";
-		if (sscore < 4) {
-			if (sscore == 0)
-				score = "Love";
-			if (sscore == 1)
-				score = "Fifteen";
-			if (sscore == 2)
-				score = "Thirty";
-		}
-		if (sscore >= 3)
-			score = "Deuce";
-		return score;
-	}
-
 
 	private void P1Score() {
 		P1point++;

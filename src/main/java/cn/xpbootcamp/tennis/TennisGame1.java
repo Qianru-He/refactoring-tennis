@@ -26,12 +26,12 @@ public class TennisGame1 implements TennisGame {
 			return getDrawScore(m_score1);
 		}
 		if (m_score1 >= 4 || m_score2 >= 4) {
-			return getAdvantageAndWin(m_score1 - m_score2);
+			return getAdvantageAndWinScore(m_score1 - m_score2);
 		}
 		return getOtherScore();
 	}
 
 	private String getOtherScore() {
-		return translateOddScore(m_score1) + "-" + translateOddScore(m_score2);
+		return translateOtherScore(m_score1) + "-" + translateOtherScore(m_score2);
 	}
 }

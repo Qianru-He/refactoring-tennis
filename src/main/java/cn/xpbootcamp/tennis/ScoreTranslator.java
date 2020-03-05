@@ -30,13 +30,13 @@ class ScoreTranslator {
 		}
 		return scoreDescribe;
 	}
-	static String translateOddScore(int score) {
+	static String translateOtherScore(int score) {
 		if (score == 3) {
 			return "Forty";
 		}
 		return translateScore(score);
 	}
-	static String getAdvantageAndWin(int minusResult) {
+	static String getAdvantageAndWinScore(int minusResult) {
 		String score;
 		if (minusResult == 1) score = "Advantage player1";
 		else if (minusResult == -1) score = "Advantage player2";

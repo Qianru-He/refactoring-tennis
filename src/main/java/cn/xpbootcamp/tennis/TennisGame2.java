@@ -22,10 +22,10 @@ public class TennisGame2 implements TennisGame {
 		}
 
 		if (P1point < 4 && P2point < 4) {
-			return translateOddScore(P1point) + "-" + translateOddScore(P2point);
+			return translateOtherScore(P1point) + "-" + translateOtherScore(P2point);
 		}
 
-		return getAdvantageAndWin(P1point - P2point);
+		return getAdvantageAndWinScore(P1point - P2point);
 	}
 
 	private void P1Score() {

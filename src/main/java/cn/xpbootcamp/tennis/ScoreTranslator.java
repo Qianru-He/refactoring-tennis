@@ -36,12 +36,13 @@ class ScoreTranslator {
 		}
 		return translateScore(score);
 	}
-	static String getAdvantageAndWinScore(int minusResult) {
+	static String getAdvantageAndWinScore(Player player1, Player player2) {
 		String score;
-		if (minusResult == 1) score = "Advantage player1";
-		else if (minusResult == -1) score = "Advantage player2";
-		else if (minusResult >= 2) score = "Win for player1";
-		else score = "Win for player2";
+		int minusResult = player1.point - player2.point;
+		if (minusResult == 1) score = "Advantage "+player1.name;
+		else if (minusResult == -1) score = "Advantage "+player2.name;
+		else if (minusResult >= 2) score = "Win for "+player1.name;
+		else score = "Win for "+player2.name;
 		return score;
 	}
 }
